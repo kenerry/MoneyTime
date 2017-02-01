@@ -1,0 +1,101 @@
+
+<html lang="pt-br" ng-app="MoneyTime">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link type="text/css" rel="stylesheet" href="../../css/bootstrap.css?1422792965"></link>
+    <link type="text/css" rel="stylesheet" href="../../css/materialadmin.css?1425466319"></link>
+    <link type="text/css" rel="stylesheet" href="../../css/datepicker.css?1424887858"></link>
+    <link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link type="text/css" rel="stylesheet" href="http://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.css">
+</head>
+<body ng-controller="clienteController">
+  <!-- BEGIN FORM MODAL MARKUP -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div style="border-top-left-radius: 12px; border-top-right-radius: 12px;" class="modal-content">
+			<div style="border-top-left-radius: 8px; border-top-right-radius: 8px; background-color: #08867E;" class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <br>
+			</div>
+			<form class="form-horizontal" role="form">
+				<div class="modal-body">
+					<div style="margin-top: 20px;" class="form-group">
+						<div class="col-sm-9">
+							<input type="email" name="email1" id="email1" class="form-control" placeholder="Nome Completo">
+						</div>
+					</div>
+					<div style="margin-top: 20px;" class="form-group">
+						<div class="col-sm-9">
+							<input type="email" name="email1" id="email1" class="form-control" placeholder="E-mail">
+						</div>
+					</div>
+					<div style="margin-top: 20px;" class="form-group">
+						<div class="col-sm-9">
+							<input type="email" name="email1" id="email1" class="form-control" placeholder="Celular">
+						</div>
+					</div>
+                    	<div style="margin-top: 20px;" class="form-group">
+						<div class="col-sm-9 input-group date" id="demo-date">
+                            <input style="margin-left: 14px;" type="text" class="form-control" id="txtData" placeholder="Data de Nascimento">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary">Registrar</button>
+				</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- END FORM MODAL MARKUP -->
+    <button class="btn btn-default-bright btn-raised" data-toggle="modal" data-target="#formModal">Form modal</button>
+    <div style="margin-top: 20px; margin-left:30px;" class="col-lg-10 col-md-8 col-sm-6">
+        <md-content layout="column" >
+            <md-card>
+                <md-toolbar class="md-table-toolbar md-default" >
+                    <div class="md-toolbar-tools">
+                        <span>Clientes</span>
+                    </div>
+                </md-toolbar>
+                <md-table>
+                    <table md-table md-row-select ng-model="selected" md-progress="promise">
+                        <thead md-head>
+                            <tr md-row>
+                                <th md-column md-order-by="name"><span>Nome</span></th>
+                                <th md-column md-order-by="surname"><span>E-mail</span></th>
+                                <th md-column md-order-by="name"><span>Celular</span></th>
+                                <th md-column md-order-by="surname"><span>Data de Nascimento</span></th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-repeat="p in pessoa">
+                                <td md-cell>{{p.nome}}</td>
+                                <td md-cell>{{p.email}}</td>
+                                <td md-cell>{{p.celular}}</td>
+                                <td md-cell>{{p.dataNascimento}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table>
+            </md-card>
+        </md-content>
+    </div>
+</body>
+  
+   <script src="../../lib/jquery/jquery-1.11.2.min.js"></script>
+   <script src="../../lib/jquery/jquery-migrate-1.2.1.min.js"></script>
+   <script src="../../lib/bootstrap/bootstrap.min.js"></script>
+   <script src="../../lib/angular/angular.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-aria.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+   <script src="http://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.js"></script>
+   <script src="../../js/app.js"></script>
+   <script src="../../js/appTheme.min.js"></script>
+   <script src="../../js/controllers/cliente/clienteController.js"></script>
+   <script src="../../js/theme/Calendar/DemoFormComponents.js"></script>
+   <script src="../../lib/bootstrap/bootstrap-datepicker.js"></script>
+</html>
